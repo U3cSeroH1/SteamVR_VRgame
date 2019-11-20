@@ -50,8 +50,14 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/touching",
-      "type": "boolean"
+      "name": "/actions/default/in/tpad_move",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/default/in/tpad_touching",
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/default/out/Haptic",

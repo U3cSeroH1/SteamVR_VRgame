@@ -5,22 +5,67 @@ using Valve.VR;
 
 public class move : MonoBehaviour
 {
+    public float Sensitivity = 0.1f;
 
-    public SteamVR_Input_Sources leftHand;
-    public SteamVR_Input_Sources rightHand;
+
+
+    public float MaxSpeed = 1.0f;
+
+    float moveX = 0f;
+    float moveZ = 0f;
+
+
+    public SteamVR_Action_Boolean MovePress = null;
+    public SteamVR_Action_Vector2 MoveValue = null;
+
+    private float Speed = 0.0f;
+
+    public CharacterController CharacterController = null;
+
+    public Transform Head = null;
+
     [SerializeField]
     private GameObject leftcontroller;
 
-    void Start()
+    private void Update()
     {
+
+        CalculateMovement();
+        HandleHeight();
+    }
+
+
+
+
+
+    private void CalculateMovement()
+    {
+
+        moveX = MoveValue.axis.x * MaxSpeed;
+        moveZ = MoveValue.axis.y * MaxSpeed;
+        Vector3 direction = new Vector3(moveX, 0, moveZ);
+
+        CharacterController.SimpleMove(leftcontroller.transform.forward);
 
     }
 
-    void Update()
+    private void HandleHeight()
     {
-        if (SteamVR_Input.GetState("touching", leftHand))
-        {
-            this.transform.position += leftcontroller.transform.forward * Time.deltaTime * 3f;
-        }
+        float distanceFromFloor = Mathf.Clamp(Head.localPosition.y, 0.5f, 2);
+        CharacterController.height = distanceFromFloor;
+
+        Vector3 newCenter = Vector3.zero;
+        newCenter.y = CharacterController.height / 2;
+        newCenter.y += CharacterController.skinWidth;
+
+        newCenter.x = Head.localPosition.x;
+        newCenter.z = Head.localPosition.z;
+
+        newCenter = Quaternion.Euler(0, -transform.eulerAngles.y, 0) * newCenter;
+
+        CharacterController.center = newCenter;
+
+
     }
+
 }
