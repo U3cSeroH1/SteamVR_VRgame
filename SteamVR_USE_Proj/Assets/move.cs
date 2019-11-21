@@ -18,6 +18,8 @@ public class move : MonoBehaviour
     public SteamVR_Action_Boolean MovePress = null;
     public SteamVR_Action_Vector2 MoveValue = null;
 
+
+
     private float Speed = 0.0f;
 
     public CharacterController CharacterController = null;
@@ -43,9 +45,17 @@ public class move : MonoBehaviour
 
         moveX = MoveValue.axis.x * MaxSpeed;
         moveZ = MoveValue.axis.y * MaxSpeed;
-        Vector3 direction = new Vector3(moveX, 0, moveZ);
 
-        CharacterController.SimpleMove(leftcontroller.transform.forward);
+
+        //Debug.Log(MoveValue.axis.x);
+
+        //左
+
+
+        if (MoveValue.axis != Vector2.zero)
+        {
+            CharacterController.SimpleMove(leftcontroller.transform.rotation * new Vector3(moveX, 0, moveZ));
+        }
 
     }
 
