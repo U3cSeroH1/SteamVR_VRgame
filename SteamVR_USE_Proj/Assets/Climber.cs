@@ -1,55 +1,57 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.VR;
 using Valve.VR;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Climber : MonoBehaviour
 {
-    public ClimberHand RightHand;
-    public ClimberHand LeftHand;
-    public SteamVR_Action_Boolean ToggleGripButton;
-    public SteamVR_Action_Pose position;
-    public ConfigurableJoint ClimberHandle;
 
-    private bool Climbing;
-    private ClimberHand ActiveHand;
+    public float gravity = 45.0f;
+    public float sensitivity = 45.0f;
+
+    public ClimberHand currentHand = null;
+    private CharacterController controller = null;
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+
 
     void Update()
     {
-        updateHand(RightHand);
-        updateHand(LeftHand);
-        if (Climbing)
-        {
-            ClimberHandle.targetPosition = -ActiveHand.transform.localPosition;//update collider for hand movment
-        }
+        CalculateMovement();
     }
 
-    void updateHand(ClimberHand Hand)
+    private void CalculateMovement()
     {
-        if (Climbing && Hand == ActiveHand)//if is the hand used for climbing check if we are letting go.
-        {
-            if (ToggleGripButton.GetStateUp(Hand.Hand))
-            {
-                ClimberHandle.connectedBody = null;
-                Climbing = false;
+        Vector3 movement = Vector3.zero;
 
-                GetComponent<Rigidbody>().useGravity = true;
-            }
-        }
-        else
-        {
-            if (ToggleGripButton.GetStateDown(Hand.Hand) || Hand.grabbing)
-            {
-                Hand.grabbing = true;
-                if (Hand.TouchedCount > 0)
-                {
-                    ActiveHand = Hand;
-                    Climbing = true;
-                    ClimberHandle.transform.position = Hand.transform.position;
-                    GetComponent<Rigidbody>().useGravity = false;
-                    ClimberHandle.connectedBody = GetComponent<Rigidbody>();
-                    Hand.grabbing = false;
-                }
-            }
-        }
+        if (currentHand)
+            movement += currentHand.Delta * sensitivity;
+
+        if (movement == Vector3.zero)
+            movement.y -= gravity * Time.deltaTime;
+
+
+        controller.Move(movement * Time.deltaTime);
+
+
     }
+
+    public void SetHand(ClimberHand hand)
+    {
+        if (currentHand)
+            currentHand.ReleasePoint();
+
+        currentHand = hand;
+
+    }
+
+    public void ClearHand()
+    {
+        currentHand = null;
+    }
+
 }

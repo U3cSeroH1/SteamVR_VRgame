@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 4000010266578624}
   - component: {fileID: 114000013167804218}
   - component: {fileID: 54000012734507470}
-  - component: {fileID: -1804491897758148566}
+  - component: {fileID: 1804165806291508149}
   m_Layer: 8
   m_Name: HandColliderRight
   m_TagString: Untagged
@@ -574,7 +574,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1804491897758148566
+--- !u!114 &1804165806291508149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -586,9 +586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b663c9455950784c97b194f5c360427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hand: 2
-  TouchedCount: 0
-  grabbing: 0
+  climber: {fileID: 0}
+  isGrab:
+    actionPath: /actions/default/in/GrabGrip
+    needsReinit: 0
+  ControllerHand: 2
+  contactPoints: []
 --- !u!1 &1000013323899228
 GameObject:
   m_ObjectHideFlags: 0

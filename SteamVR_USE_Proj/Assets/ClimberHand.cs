@@ -1,23 +1,116 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Valve.VR;
 public class ClimberHand : MonoBehaviour
 {
-    public SteamVR_Input_Sources Hand;
-    public int TouchedCount;
-    public bool grabbing;
+    public Climber climber = null;
+    public SteamVR_Action_Boolean isGrab = null;
 
-    void OnTriggerEnter(Collider other)
+    public SteamVR_Input_Sources ControllerHand;
+
+    public Vector3 Delta { private set; get; } = Vector3.zero;
+
+    private Vector3 lastPosition = Vector3.zero;
+
+    private GameObject currentPoint = null;
+    private List<GameObject> contactPoints = new List<GameObject>();
+    private MeshRenderer meshRenderer = null;
+
+    private void Awake()
     {
-        if (other.CompareTag("Climbable"))
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
+
+    private void Start()
+    {
+        climber = GetComponentInParent<Climber>();
+
+        lastPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        if (isGrab.GetStateDown(ControllerHand))
         {
-            TouchedCount++;
+
+
+            GrabPoint();
+
+
+        }
+
+        if (isGrab.GetStateUp(ControllerHand))
+        {
+            ReleasePoint();
+
+
+
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        lastPosition = transform.position;
+    }
+
+    private void LateUpdate()
+    {
+        Delta = lastPosition - transform.position;
+    }
+
+
+    private void GrabPoint()
+    {
+        currentPoint = Utility.GetNearest(transform.position, contactPoints);
+
+        if (currentPoint)
+        {
+            climber.SetHand(this);
+            meshRenderer.enabled = false;
+        }
+
+    }
+
+    public void ReleasePoint()
+    {
+        if (currentPoint)
+        {
+            climber.ClearHand();
+            meshRenderer.enabled = true;
+        }
+
+        currentPoint = null;
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        AddPoint(other.gameObject);
+    }
+
+    private void AddPoint(GameObject newObject)
+    {
+        if (newObject.CompareTag("Climbable"))
+        {
+            contactPoints.Add(newObject);
         }
     }
-    void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Climbable"))
-        {
-            TouchedCount--;
-        }
+        RemovePoint(other.gameObject);
     }
+
+    private void RemovePoint(GameObject newObject)
+    {
+        contactPoints.Remove(newObject);
+    }
+
+
+
+
+
+
 }
