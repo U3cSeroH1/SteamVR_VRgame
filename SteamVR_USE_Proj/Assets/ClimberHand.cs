@@ -68,7 +68,7 @@ public class ClimberHand : MonoBehaviour
         if (currentPoint)
         {
             climber.SetHand(this);
-            meshRenderer.enabled = false;
+            //meshRenderer.enabled = false;
         }
 
     }
@@ -78,7 +78,7 @@ public class ClimberHand : MonoBehaviour
         if (currentPoint)
         {
             climber.ClearHand();
-            meshRenderer.enabled = true;
+            //meshRenderer.enabled = true;
         }
 
         currentPoint = null;

@@ -45,12 +45,17 @@ public class Climber : MonoBehaviour
         if (currentHand)
             currentHand.ReleasePoint();
 
+
+        
+
         currentHand = hand;
+        //Debug.Log("セカンド");
 
     }
 
     public void ClearHand()
     {
+        //Debug.Log("ファースト");
         currentHand = null;
     }
 

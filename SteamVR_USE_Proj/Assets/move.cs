@@ -52,7 +52,7 @@ public class move : MonoBehaviour
         //左
 
 
-        if (MoveValue.axis != Vector2.zero)
+        if (MovePress.state)
         {
             CharacterController.SimpleMove(leftcontroller.transform.rotation * new Vector3(moveX, 0, moveZ));
         }
