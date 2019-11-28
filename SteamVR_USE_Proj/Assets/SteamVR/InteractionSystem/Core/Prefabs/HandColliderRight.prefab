@@ -591,7 +591,6 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   ControllerHand: 2
-  contactPoints: []
 --- !u!1 &1000013323899228
 GameObject:
   m_ObjectHideFlags: 0
