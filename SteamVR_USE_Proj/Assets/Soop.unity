@@ -5646,6 +5646,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6127634244656775161, guid: 3910fcf89cd0dee45a3ee897de003ffb,
+        type: 3}
+      propertyPath: RotatePress.actionPath
+      value: /actions/default/in/SnapTurnRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127634244656775161, guid: 3910fcf89cd0dee45a3ee897de003ffb,
+        type: 3}
+      propertyPath: RotateIncrement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127771131563852290, guid: 3910fcf89cd0dee45a3ee897de003ffb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3910fcf89cd0dee45a3ee897de003ffb, type: 3}
 --- !u!1 &550580575
@@ -19928,7 +19943,7 @@ GameObject:
   - component: {fileID: 1685121268}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Climbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

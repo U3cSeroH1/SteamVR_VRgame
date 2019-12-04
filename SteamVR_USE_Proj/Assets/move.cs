@@ -11,6 +11,8 @@ public class move : MonoBehaviour
 
     public float MaxSpeed = 1.0f;
 
+
+
     float moveX = 0f;
     float moveZ = 0f;
 
@@ -24,6 +26,7 @@ public class move : MonoBehaviour
 
     public CharacterController CharacterController = null;
 
+
     public Transform Head = null;
 
     [SerializeField]
@@ -34,10 +37,8 @@ public class move : MonoBehaviour
 
         CalculateMovement();
         HandleHeight();
+
     }
-
-
-
 
 
     private void CalculateMovement()
@@ -71,11 +72,14 @@ public class move : MonoBehaviour
         newCenter.x = Head.localPosition.x;
         newCenter.z = Head.localPosition.z;
 
-        newCenter = Quaternion.Euler(0, -transform.eulerAngles.y, 0) * newCenter;
+        //newCenter = Quaternion.Euler(0, -transform.eulerAngles.y, 0) * newCenter;
 
         CharacterController.center = newCenter;
 
 
     }
+
+
+
 
 }

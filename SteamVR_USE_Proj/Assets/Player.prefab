@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 6127634245230248110}
   - component: {fileID: 6127634244656775165}
   - component: {fileID: 6127634244656775161}
-  - component: {fileID: 6127634244656775164}
   - component: {fileID: 6127634244656775154}
   m_Layer: 0
   m_Name: Player
@@ -228,6 +227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensitivity: 0.1
   MaxSpeed: 2
+  RotateIncrement: 45
+  RotatePress:
+    actionPath: 
+    needsReinit: 0
   MovePress:
     actionPath: /actions/default/in/tpad_touching
     needsReinit: 0
@@ -237,23 +240,6 @@ MonoBehaviour:
   CharacterController: {fileID: 6127634244656775165}
   Head: {fileID: 6127634245237062066}
   leftcontroller: {fileID: 6127634245236611196}
---- !u!114 &6127634244656775164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6127634245236593114}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186c8c5a2de96df45aa6e28249282bd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 45
-  isGrip:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  leftcontroller: {fileID: 6127634245236754198}
 --- !u!114 &6127634244656775154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2271,7 @@ MonoBehaviour:
   fadeScreen: 1
   fadeTime: 0.1
   screenFadeColor: {r: 0, g: 0, b: 0, a: 1}
-  distanceFromFace: 0
+  distanceFromFace: 1
   additionalOffset: {x: 0, y: 0, z: 0}
   canTurnEverySeconds: 0.5
 --- !u!1 &6127771131656674370
