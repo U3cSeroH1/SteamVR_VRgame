@@ -10,14 +10,20 @@ public class Climber : MonoBehaviour
     public float gravity = 45.0f;
     public float sensitivity = 45.0f;
 
+    public GameObject Body;
+
+    public Vector3 prevPos;
+
+
+
     public ClimberHand currentHand = null;
+
     private CharacterController controller = null;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
-
 
     void Update()
     {
@@ -26,17 +32,22 @@ public class Climber : MonoBehaviour
 
     private void CalculateMovement()
     {
-        Vector3 movement = Vector3.zero;
+        //Vector3 movement = Vector3.zero;
+
+        //if (currentHand)
+        //    movement += currentHand.Delta * sensitivity;
+
+        //if (movement == Vector3.zero)
+        //    movement.y -= gravity * Time.deltaTime;
+
+
+        //controller.Move(movement * Time.deltaTime);
+
 
         if (currentHand)
-            movement += currentHand.Delta * sensitivity;
+            Body.transform.position += (currentHand.Delta);
 
-        if (movement == Vector3.zero)
-            movement.y -= gravity * Time.deltaTime;
-
-
-        controller.Move(movement * Time.deltaTime);
-
+        //prevPos = currentHand.transform.localPosition;
 
     }
 

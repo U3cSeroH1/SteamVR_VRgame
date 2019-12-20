@@ -26,7 +26,7 @@ public class ClimberHand : MonoBehaviour
     {
         climber = GetComponentInParent<Climber>();
 
-        lastPosition = transform.position;
+        lastPosition = transform.localPosition;
     }
 
     private void Update()
@@ -52,18 +52,18 @@ public class ClimberHand : MonoBehaviour
 
     private void FixedUpdate()
     {
-        lastPosition = transform.position;
+        lastPosition = transform.localPosition;
     }
 
     private void LateUpdate()
     {
-        Delta = lastPosition - transform.position;
+        Delta = lastPosition - transform.localPosition;
     }
 
 
     private void GrabPoint()
     {
-        currentPoint = Utility.GetNearest(transform.position, contactPoints);
+        currentPoint = Utility.GetNearest(transform.localPosition, contactPoints);
 
         if (currentPoint)
         {
