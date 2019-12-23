@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5180533335857617034}
   - component: {fileID: 5180533335850781382}
   m_Layer: 0
-  m_Name: LongbowItemPackage
+  m_Name: LongbowItemPackageFix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Longbow
-  packageType: 1
-  itemPrefab: {fileID: 0}
-  otherHandItemPrefab: {fileID: 187848, guid: d410d7126dd411c4ea651fc94eae9202, type: 3}
-  previewPrefab: {fileID: 173346, guid: f1f5f898fbfdb80478825ce9b01fe8ae, type: 3}
-  fadedPreviewPrefab: {fileID: 173346, guid: f1f5f898fbfdb80478825ce9b01fe8ae, type: 3}
+  packageType: 2
+  itemPrefab: {fileID: 8544412647347878310, guid: df13d81a19ebc3e4e98a011e4f2af961,
+    type: 3}
+  otherHandItemPrefab: {fileID: 4595556435775745110, guid: 0f232fa824f7d6e469cae1b2e20cc735,
+    type: 3}
+  previewPrefab: {fileID: 723590051941849056, guid: 010ceb8c88b4a014e9f1a45b7c1c42bd,
+    type: 3}
+  fadedPreviewPrefab: {fileID: 103010, guid: b9d299b8c6aa86242bec9a060f7e2d81, type: 3}
