@@ -365,7 +365,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnHandFocusLost( Hand hand )
 		{
-			gameObject.SetActive( false );
+			//gameObject.SetActive( false );
 		}
 
 
@@ -380,7 +380,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnDetachedFromHand( Hand hand )
 		{
-			Destroy( gameObject );
+			//Destroy( gameObject );
 		}
 
 
