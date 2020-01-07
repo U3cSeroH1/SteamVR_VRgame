@@ -13,6 +13,13 @@ public class ClimbingRig : MonoBehaviour
     private bool Climbing;
     private ClimbingRigHand ActiveHand;
 
+    private void Start()
+    {
+        LeftHand = GameObject.Find("HandColliderLeft(Clone)").GetComponent<ClimbingRigHand>();
+        RightHand = GameObject.Find("HandColliderRight(Clone)").GetComponent<ClimbingRigHand>();
+    }
+
+
     void Update()
     {
         updateHand(RightHand);

@@ -15,14 +15,14 @@ public class Climber : MonoBehaviour
     public Vector3 prevPos;
 
 
-
+    public new Rigidbody rigidbody;
     public ClimberHand currentHand = null;
 
-    private CharacterController controller = null;
+    //private CharacterController controller = null;
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        //rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -45,8 +45,15 @@ public class Climber : MonoBehaviour
 
 
         if (currentHand)
-            Body.transform.position += (currentHand.Delta);
+        {
+            Body.transform.position +=  (Quaternion.Euler(0, 0, 0) * currentHand.Delta) ;
+            rigidbody.useGravity = false;
+        }
 
+        else
+        {
+            rigidbody.useGravity = true;
+        }
         //prevPos = currentHand.transform.localPosition;
 
     }
