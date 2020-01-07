@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Bool_keys:
   - pbGenerateUV2PerObject
+  - pbDragSelectWholeElement
   m_Int_keys:
   - pbHandleAlignment
   - pbDefaultEditLevel
   - pb_GIWorkflowMode
   - pbDefaultSelectionMode
+  - pbDragSelectMode
   m_Float_keys:
   - pbEditorScroll.x
   - pbEditorScroll.y
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 00
-  m_Int_values: 00000000010000000100000002000000
+  m_Bool_values: 0000
+  m_Int_values: 0000000001000000010000000200000002000000
   m_Float_values:
   - 0
   - 0

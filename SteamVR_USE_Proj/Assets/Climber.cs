@@ -48,23 +48,30 @@ public class Climber : MonoBehaviour
         {
             Body.transform.position +=  (Quaternion.Euler(0, 0, 0) * currentHand.Delta) ;
             rigidbody.useGravity = false;
+            //rigidbody.isKinematic = true;
         }
 
         else
         {
             rigidbody.useGravity = true;
+            //this.transform.parent = null;
         }
         //prevPos = currentHand.transform.localPosition;
 
     }
 
-    public void SetHand(ClimberHand hand)
+    public void SetHand(ClimberHand hand, GameObject attachPointTest)
     {
         if (currentHand)
             currentHand.ReleasePoint();
 
 
-        
+        //this.transform.parent = attachPointTest.transform;
+
+        //attachPointTest.AddComponent<FixedJoint>();
+
+        //attachPointTest.GetComponent<FixedJoint>().connectedBody = Body.GetComponent<Rigidbody>();
+
 
         currentHand = hand;
         //Debug.Log("セカンド");
@@ -75,6 +82,7 @@ public class Climber : MonoBehaviour
     {
         //Debug.Log("ファースト");
         currentHand = null;
+        //this.transform.parent = null;
     }
 
 }

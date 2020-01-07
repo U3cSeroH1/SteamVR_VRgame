@@ -17,6 +17,8 @@ public class ClimberHand : MonoBehaviour
     private List<GameObject> contactPoints = new List<GameObject>();
     private MeshRenderer meshRenderer = null;
 
+    //public GameObject JointObject = null;
+
     private void Awake()
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
@@ -67,7 +69,8 @@ public class ClimberHand : MonoBehaviour
 
         if (currentPoint)
         {
-            climber.SetHand(this);
+            climber.SetHand(this, currentPoint);
+            
             //meshRenderer.enabled = false;
         }
 
