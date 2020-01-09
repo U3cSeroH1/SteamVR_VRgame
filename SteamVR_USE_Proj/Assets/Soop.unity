@@ -19433,6 +19433,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65762478313260324, guid: f3df5426208eb9b41a3329e88754cba6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: bede940d615674b468da61190c615a81,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3df5426208eb9b41a3329e88754cba6, type: 3}
 --- !u!1001 &1010241685
@@ -22341,6 +22347,7 @@ MonoBehaviour:
   hand: {fileID: 1238631009}
   pointingHoverObj: {fileID: 1783851532}
   pointingHoverObjInst: {fileID: 0}
+  Index: {fileID: 0}
 --- !u!114 &1238631012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7998428478452399405, guid: bd297cf703199594d83a72f88916ba83,
@@ -30505,7 +30512,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410155012}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -31629,7 +31636,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  snapAttachEaseInTime: 0.15
+  snapAttachEaseInTime: 3
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
@@ -32099,6 +32106,7 @@ MonoBehaviour:
   hand: {fileID: 1481276003}
   pointingHoverObj: {fileID: 2070495565}
   pointingHoverObjInst: {fileID: 0}
+  Index: {fileID: 0}
 --- !u!114 &1481276002 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7998428478842101935, guid: bd297cf703199594d83a72f88916ba83,
@@ -46087,6 +46095,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Rigid
       objectReference: {fileID: 0}
+    - target: {fileID: 7968312751894112733, guid: bd297cf703199594d83a72f88916ba83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968312751894129135, guid: bd297cf703199594d83a72f88916ba83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968749808891917121, guid: bd297cf703199594d83a72f88916ba83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968312751894142829, guid: bd297cf703199594d83a72f88916ba83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7968312751893892969, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46152,20 +46180,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 7968312751894112733, guid: bd297cf703199594d83a72f88916ba83,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7998428477991933313, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: clearanceCheckMask.m_Bits
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7968749808891917121, guid: bd297cf703199594d83a72f88916ba83,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7968749809112597015, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
@@ -46182,20 +46200,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 7968312751894129135, guid: bd297cf703199594d83a72f88916ba83,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7998428522222364071, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: clearanceCheckMask.m_Bits
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7968312751894142829, guid: bd297cf703199594d83a72f88916ba83,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7968312751894205133, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}

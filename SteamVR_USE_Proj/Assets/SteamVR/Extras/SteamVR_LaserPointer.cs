@@ -32,50 +32,15 @@ namespace Valve.VR.Extras
         public GameObject pointingHoverObjInst;
 
 
+        public GameObject Index;
+
+
         Transform previousContact = null;
 
 
         private void Start()
         {
-            if (pose == null)
-                pose = this.GetComponent<SteamVR_Behaviour_Pose>();
-            if (pose == null)
-                Debug.LogError("No SteamVR_Behaviour_Pose component found on this object", this);
 
-            if (interactWithUI == null)
-                Debug.LogError("No ui interaction action has been set on this component.", this);
-
-
-            holder = new GameObject();
-            holder.transform.parent = this.transform;
-            holder.transform.localPosition = Vector3.zero;
-            holder.transform.localRotation = Quaternion.identity;
-
-            pointer = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            pointer.transform.parent = holder.transform;
-            pointer.transform.localScale = new Vector3(thickness, thickness, 100f);
-            pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
-            pointer.transform.localRotation = Quaternion.identity;
-            BoxCollider collider = pointer.GetComponent<BoxCollider>();
-            if (addRigidBody)
-            {
-                if (collider)
-                {
-                    collider.isTrigger = true;
-                }
-                Rigidbody rigidBody = pointer.AddComponent<Rigidbody>();
-                rigidBody.isKinematic = true;
-            }
-            else
-            {
-                if (collider)
-                {
-                    Object.Destroy(collider);
-                }
-            }
-            Material newMaterial = new Material(Shader.Find("Unlit/Color"));
-            newMaterial.SetColor("_Color", color);
-            pointer.GetComponent<MeshRenderer>().material = newMaterial;
         }
 
         public virtual void OnPointerIn(PointerEventArgs e)
@@ -99,6 +64,55 @@ namespace Valve.VR.Extras
 
         private void Update()
         {
+            //fuckinstartfuckbitchprograming
+            if (Index == null)
+            {
+                Index = this.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+
+                if (pose == null)
+                    pose = this.GetComponent<SteamVR_Behaviour_Pose>();
+                if (pose == null)
+                    Debug.LogError("No SteamVR_Behaviour_Pose component found on this object", this);
+
+                if (interactWithUI == null)
+                    Debug.LogError("No ui interaction action has been set on this component.", this);
+
+
+
+                holder = new GameObject();
+                holder.transform.parent = Index.transform;
+                holder.transform.localPosition = Vector3.zero;
+                holder.transform.localRotation = Quaternion.Euler(0, 90, 0);
+
+                pointer = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                pointer.transform.parent = holder.transform;
+                pointer.transform.localScale = new Vector3(thickness, thickness, 5f);
+                pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
+                pointer.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+                BoxCollider collider = pointer.GetComponent<BoxCollider>();
+                if (addRigidBody)
+                {
+                    if (collider)
+                    {
+                        collider.isTrigger = true;
+                    }
+                    Rigidbody rigidBody = pointer.AddComponent<Rigidbody>();
+                    rigidBody.isKinematic = true;
+                }
+                else
+                {
+                    if (collider)
+                    {
+                        Object.Destroy(collider);
+                    }
+                }
+                Material newMaterial = new Material(Shader.Find("Unlit/Color"));
+                newMaterial.SetColor("_Color", color);
+                pointer.GetComponent<MeshRenderer>().material = newMaterial;
+            }
+
+
             if (!isActive)
             {
                 isActive = true;
