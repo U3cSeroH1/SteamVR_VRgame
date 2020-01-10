@@ -13,7 +13,7 @@ namespace Valve.VR.Extras
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
 
         public bool active = true;
-        public Color color;
+        public Color color = new Color(0,0,0,0);
         public float thickness = 0.002f;
         public Color clickColor = Color.green;
         public GameObject holder;
@@ -33,6 +33,8 @@ namespace Valve.VR.Extras
 
 
         public GameObject Index;
+
+        private Ray raycast = new Ray();
 
 
         Transform previousContact = null;
@@ -121,7 +123,17 @@ namespace Valve.VR.Extras
 
             float dist = 100f;
 
-            Ray raycast = new Ray(transform.position, transform.forward);
+
+
+            if (hand.handType == SteamVR_Input_Sources.RightHand)
+            {
+                raycast = new Ray(Index.transform.position, Index.transform.right);
+            }
+            else if (hand.handType == SteamVR_Input_Sources.LeftHand)
+            {
+                raycast = new Ray(Index.transform.position, -Index.transform.right);
+            }
+
             RaycastHit hit;
             bool bHit = Physics.Raycast(raycast, out hit);
 
@@ -164,6 +176,8 @@ namespace Valve.VR.Extras
                 OnPointerClick(argsClick);
             }
 
+
+            //指さしている途中
             if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
             {
                 pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
@@ -179,7 +193,7 @@ namespace Valve.VR.Extras
             }
             else
             {
-                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
+                pointer.transform.localScale = new Vector3(0, 0, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = color;
 
                 pointingObj = null;
@@ -188,6 +202,9 @@ namespace Valve.VR.Extras
 
                 hand.hoverSphereTransform = pointingHoverObj.transform;
             }
+
+
+
             pointer.transform.localPosition = new Vector3(0f, 0f, dist / 2f);
         }
     }
