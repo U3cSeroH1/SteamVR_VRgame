@@ -103,6 +103,8 @@ namespace Valve.VR.InteractionSystem
 
 		private Hand handHoverLocked = null;
 
+
+
         private Interactable interactable;
 
 		//-------------------------------------------------

@@ -52,13 +52,13 @@ public class MovementVR : MonoBehaviour
     private void FixedUpdate()
     {
 
-        CalculateMovement();
+        CalculateMovement(false);
         HandleHeight();
 
     }
 
 
-    private void CalculateMovement()
+    public void CalculateMovement(bool called)
     {
         Vector3 moveVector = Vector3.zero;
 
@@ -66,11 +66,14 @@ public class MovementVR : MonoBehaviour
         moveX = MoveValue.axis.x;
         moveZ = MoveValue.axis.y;
 
-        if (MovePress.state)
+        if (MovePress.state || called)
         {
             moveVector = MaxSpeed * ( Quaternion.Euler(0, leftcontroller.transform.eulerAngles.y, 0) * new Vector3(moveX, 0, moveZ));
 
             rigidbody.AddForce(moveForceMultiplier * (moveVector - rigidbody.velocity), ForceMode.Force);
+
+            Debug.Log("ああああああああああああああああああああああああああああああああああああ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！");
+
         }
 
     }
