@@ -51,7 +51,7 @@ namespace Valve.VR.InteractionSystem
 
 
         // [Tooltip("The skeleton pose to apply when grabbing. Can only set this or handFollowTransform.")]
-        [HideInInspector]
+        //[HideInInspector]
         public SteamVR_Skeleton_Poser skeletonPoser;
 
         [Tooltip("Should the rendered hand lock on to and follow the object")]
@@ -95,6 +95,7 @@ namespace Valve.VR.InteractionSystem
 
         private void Awake()
         {
+            if(!skeletonPoser)
             skeletonPoser = GetComponent<SteamVR_Skeleton_Poser>();
         }
 
