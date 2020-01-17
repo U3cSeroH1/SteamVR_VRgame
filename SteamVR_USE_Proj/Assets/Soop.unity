@@ -50820,6 +50820,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7968312751887150573, guid: bd297cf703199594d83a72f88916ba83,
+        type: 3}
+      propertyPath: renderModelPrefab
+      value: 
+      objectReference: {fileID: 9014539719064181029, guid: d4a280ecea6ce18428777b93b91ff214,
+        type: 3}
     - target: {fileID: 7968749808891917121, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: m_Layer
@@ -50918,7 +50924,7 @@ PrefabInstance:
     - target: {fileID: 7968312751894140913, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7968312751894146805, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
@@ -50948,7 +50954,7 @@ PrefabInstance:
     - target: {fileID: 7968312751894228309, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7968312751894136405, guid: bd297cf703199594d83a72f88916ba83,
         type: 3}

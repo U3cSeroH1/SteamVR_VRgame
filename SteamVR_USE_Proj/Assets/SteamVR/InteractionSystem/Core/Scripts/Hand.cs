@@ -1290,6 +1290,8 @@ namespace Valve.VR.InteractionSystem
             if (attachedObject.interactable != null && attachedObject.interactable.skeletonPoser != null && HasSkeleton())
             {
                 Quaternion tr = Quaternion.Inverse(attachedObject.handAttachmentPointTransform.rotation) * (transform.rotation * attachedObject.interactable.skeletonPoser.GetBlendedPose(skeleton).rotation);
+
+
                 return currentAttachedObjectInfo.Value.handAttachmentPointTransform.rotation * tr;
             }
             else
