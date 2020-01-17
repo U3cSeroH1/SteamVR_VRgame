@@ -487,6 +487,9 @@ namespace Valve.VR
 
         /// <summary>
         /// Perform a deep copy from one poseSnapshot to another.
+        /// ここを変える！！！！！！！！！！！！！！！！！！
+        /// 
+        /// 
         /// </summary>
         public void CopyFrom(SteamVR_Skeleton_PoseSnapshot source)
         {

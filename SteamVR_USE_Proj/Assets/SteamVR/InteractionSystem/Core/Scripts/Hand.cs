@@ -401,6 +401,7 @@ namespace Valve.VR.InteractionSystem
             attachedObject.attachedObject = objectToAttach;
             attachedObject.interactable = objectToAttach.GetComponent<Interactable>();
             attachedObject.allowTeleportWhileAttachedToHand = objectToAttach.GetComponent<AllowTeleportWhileAttachedToHand>();
+
             attachedObject.handAttachmentPointTransform = this.transform;
 
             if (attachedObject.interactable != null)
@@ -413,7 +414,11 @@ namespace Valve.VR.InteractionSystem
                 }
 
                 if (attachedObject.interactable.useHandObjectAttachmentPoint)
+                {
+                    
                     attachedObject.handAttachmentPointTransform = objectAttachmentPoint;
+                }
+
 
                 if (attachedObject.interactable.hideHandOnAttach)
                     Hide();
@@ -1265,7 +1270,12 @@ namespace Valve.VR.InteractionSystem
         {
             if (attachedObject.interactable != null && attachedObject.interactable.skeletonPoser != null && HasSkeleton())
             {
+
+                //ここ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
                 Vector3 tp = attachedObject.handAttachmentPointTransform.InverseTransformPoint(transform.TransformPoint(attachedObject.interactable.skeletonPoser.GetBlendedPose(skeleton).position));
+                    
+                    //
                 //tp.x *= -1;
                 return currentAttachedObjectInfo.Value.handAttachmentPointTransform.TransformPoint(tp);
             }
