@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Valve.VR.InteractionSystem;
+using System;
 
 public class StickyFinger : MonoBehaviour
 {
+    //[Flags]
+    public enum SticyType
+    {
+        bottle = 1 << 0,    // グー
+        consent = 1 << 1,  // チョキ
+        Key = 1 << 2,    // パー
+    }
+
+    public SticyType sticyType;
 
     void Start()
     {
