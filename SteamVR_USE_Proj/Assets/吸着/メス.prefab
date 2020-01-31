@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 563430915796979673}
   - component: {fileID: 563430915796979684}
   - component: {fileID: 563430915796979685}
-  - component: {fileID: 563430915796979686}
   - component: {fileID: 563430915796979683}
   m_Layer: 0
   m_Name: "\u30E1\u30B9"
@@ -126,20 +125,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &563430915796979686
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563430915796979675}
-  m_ConnectedBody: {fileID: 0}
-  m_BreakForce: 100
-  m_BreakTorque: 100
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!114 &563430915796979683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79772daa72389e40977dd0b37b3ec2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sticyType: 0
 --- !u!1 &5973747820403401121
 GameObject:
   m_ObjectHideFlags: 0
