@@ -617,7 +617,15 @@ namespace Valve.VR.InteractionSystem
             if (spewDebugText)
                 HandDebugLog("AttachObject " + objectToAttach);
             objectToAttach.SendMessage("OnAttachedToHand", this, SendMessageOptions.DontRequireReceiver);
+
+            //追加コード:持ったアイテムのレイヤー変更
+            SetLayerRecursively(attachedObject.attachedObject, 9);
+
         }
+
+
+
+
 
         public bool ObjectIsAttached(GameObject go)
         {
@@ -752,6 +760,11 @@ namespace Valve.VR.InteractionSystem
                 mainRenderModel.MatchHandToTransform(mainRenderModel.transform);
             if (hoverhighlightRenderModel != null)
                 hoverhighlightRenderModel.MatchHandToTransform(hoverhighlightRenderModel.transform);
+
+
+            //追加コード:持ったアイテムのレイヤー変更
+            SetLayerRecursively(objectToDetach, 0);
+
         }
 
 
@@ -1793,6 +1806,23 @@ namespace Valve.VR.InteractionSystem
 
         //}
 
+        //追加コード
+        /// <summary>
+        /// 自分自身を”含まない”すべての子オブジェクトのレイヤーを設定します
+        /// </summary>
+        protected virtual void SetLayerRecursively(
+            GameObject self,
+            int layer
+        )
+        {
+            self.layer = layer;
+
+            foreach (Transform n in self.transform)
+            {
+                SetLayerRecursively(n.gameObject, layer);
+            }
+        }
+
 
         public AttachedObject getAttachedObjectInfo(GameObject obj)
         {
@@ -1812,6 +1842,9 @@ namespace Valve.VR.InteractionSystem
                 attachedObjects[index] = objInfo;
             }
         }
+
+
+
 
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class Player : MonoBehaviour
+public class Player_X : MonoBehaviour
 {
     private Vector2 trackpad;
     private Vector3 moveDirection;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Rigidbody RBody = GetComponent<Rigidbody>();
-        moveDirection = Quaternion.AngleAxis(Angle(trackpad) + AxisHand.transform.localRotation.eulerAngles.y, Vector3.up) * Vector3.forward* trackpad.magnitude;//get the angle of the touch and correct it for the rotation of the controller
+        moveDirection = Quaternion.AngleAxis(Angle(trackpad) + AxisHand.transform.localRotation.eulerAngles.y, Vector3.up) * Vector3.forward * trackpad.magnitude;//get the angle of the touch and correct it for the rotation of the controller
         updateInput();
         updateCollider();
         CheckGround();
@@ -40,7 +40,8 @@ public class Player : MonoBehaviour
 
 
             CapCollider.material = NoFrictionMaterial;
-            if (TouchingGround) {
+            if (TouchingGround)
+            {
                 if (JumpAction.GetStateDown(MovementHand))
                 {
 
@@ -48,15 +49,15 @@ public class Player : MonoBehaviour
                     RBody.AddForce(0, jumpSpeed, 0, ForceMode.VelocityChange);
                     //RBody.AddForce(moveDirection.x * MovementSpeed - RBody.velocity.x, 0, moveDirection.z * MovementSpeed - RBody.velocity.z, ForceMode.VelocityChange);
                 }
-                RBody.AddForce(moveDirection.x * MovementSpeed-RBody.velocity.x, 0, moveDirection.z * MovementSpeed-RBody.velocity.z, ForceMode.VelocityChange);
+                RBody.AddForce(moveDirection.x * MovementSpeed - RBody.velocity.x, 0, moveDirection.z * MovementSpeed - RBody.velocity.z, ForceMode.VelocityChange);
 
                 Debug.Log("Velocity" + moveDirection);
                 Debug.Log("Movement Direction:" + moveDirection);
             }
             else
             {
-                Debug.Log((moveDirection.x * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f))*Time.fixedDeltaTime, 0, moveDirection.z * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime));
-                RBody.AddForce(moveDirection.x*MovementSpeed/( Mathf.Sqrt(2 * jumpHeight * 9.81f)/(9.81f)) * Time.fixedDeltaTime, 0, moveDirection.z *MovementSpeed/ (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime, ForceMode.VelocityChange);
+                Debug.Log((moveDirection.x * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime, 0, moveDirection.z * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime));
+                RBody.AddForce(moveDirection.x * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime, 0, moveDirection.z * MovementSpeed / (Mathf.Sqrt(2 * jumpHeight * 9.81f) / (9.81f)) * Time.fixedDeltaTime, ForceMode.VelocityChange);
             }
         }
         else
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
         int layerMask = 1 << 9;
         layerMask = ~layerMask;
         RaycastHit Hit;
-        if (Physics.Raycast(transform.position + Vector3.up* Head.transform.localPosition.y, Vector3.down, out Hit, Head.transform.localPosition.y+.2f, layerMask))
+        if (Physics.Raycast(transform.position + Vector3.up * Head.transform.localPosition.y, Vector3.down, out Hit, Head.transform.localPosition.y + .2f, layerMask))
         {
             TouchingGround = true;
         }
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour
     }
     public static float Angle(Vector2 p_vector2)
     {
-        
+
         if (p_vector2.x < 0)
         {
             return 360 - (Mathf.Atan2(p_vector2.x, p_vector2.y) * Mathf.Rad2Deg * -1);
@@ -97,7 +98,7 @@ public class Player : MonoBehaviour
     }
     private void updateInput()
     {
-        if(TrackpadAction.GetActive(MovementHand)) trackpad = TrackpadAction.GetAxis(MovementHand);
+        if (TrackpadAction.GetActive(MovementHand)) trackpad = TrackpadAction.GetAxis(MovementHand);
     }
-    
+
 }

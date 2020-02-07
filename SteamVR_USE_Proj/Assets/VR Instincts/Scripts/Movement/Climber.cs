@@ -13,8 +13,15 @@ public class Climber : MonoBehaviour
 
     private bool Climbing;
     private ClimberHand ActiveHand;
+    private Rigidbody movedRigidbody;
 
-    public MovementVR movementvr = null;
+    //public MovementVR movementvr = null;
+
+    private void Start()
+    {
+        movedRigidbody = GetComponent<Rigidbody>();
+    }
+
 
     void FixedUpdate()
     {
@@ -42,13 +49,18 @@ public class Climber : MonoBehaviour
         {
 
             //movementvr.CalculateMovement(true);
+            movedRigidbody.AddForce(100f * (new Vector3(0f, 0f, 0f) - movedRigidbody.velocity), ForceMode.Force);
+
 
             if (ToggleGripButton.GetStateUp(Hand.Hand))
             {
                 ClimberHandle.connectedBody = null;
                 Climbing = false;
 
-                GetComponent<Rigidbody>().useGravity = true;
+                movedRigidbody.useGravity = true;
+
+                movedRigidbody.AddForce(movedRigidbody.velocity, ForceMode.Impulse); //position.GetVelocity(Hand)
+
             }
 
 
@@ -67,10 +79,10 @@ public class Climber : MonoBehaviour
                     Climbing = true;
                     ClimberHandle.transform.position = Hand.transform.position;
 
-                    
 
-                    GetComponent<Rigidbody>().useGravity = false;
-                    ClimberHandle.connectedBody = GetComponent<Rigidbody>();
+
+                    movedRigidbody.useGravity = false;
+                    ClimberHandle.connectedBody = movedRigidbody;
                     Hand.grabbing = false;
 
                     

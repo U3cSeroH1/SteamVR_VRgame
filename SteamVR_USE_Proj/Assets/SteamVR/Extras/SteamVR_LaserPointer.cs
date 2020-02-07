@@ -28,8 +28,10 @@ namespace Valve.VR.Extras
         //追加
         public GameObject pointingObj;
         public Hand hand;
+
         public GameObject pointingHoverObj;
-        public GameObject pointingHoverObjInst;
+        public GameObject pointingHoverObjTransformOrigin;
+
 
 
         public GameObject Index;
@@ -42,7 +44,7 @@ namespace Valve.VR.Extras
 
         private void Start()
         {
-
+            //pointingHoverObjOriginTransform = pointingHoverObj.transform.position;
         }
 
         public virtual void OnPointerIn(PointerEventArgs e)
@@ -69,7 +71,7 @@ namespace Valve.VR.Extras
             //fuckinstartfuckbitchprograming
             if (Index == null)
             {
-                Index = this.transform.GetChild(5).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+                Index = this.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
 
                 if (pose == null)
                     pose = this.GetComponent<SteamVR_Behaviour_Pose>();
@@ -123,7 +125,11 @@ namespace Valve.VR.Extras
 
             float dist = 100f;
 
+                //            case GrabTypes.Pinch:
+                //    return grabPinchAction.GetState(handType);
 
+                //case GrabTypes.Grip:
+                //    return grabGripAction.GetState(handType);
 
             if (hand.handType == SteamVR_Input_Sources.RightHand)
             {
@@ -166,7 +172,7 @@ namespace Valve.VR.Extras
                 dist = hit.distance;
             }
 
-            if (bHit && interactWithUI.GetStateUp(pose.inputSource))
+            if (bHit && hand.grabGripAction.GetStateUp(hand.handType))
             {
                 PointerEventArgs argsClick = new PointerEventArgs();
                 argsClick.fromInputSource = pose.inputSource;
@@ -177,18 +183,18 @@ namespace Valve.VR.Extras
             }
 
 
-            //指さしている途中
-            if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
+            //指さしている途中hand.grabGripAction.GetState(hand.handType)
+            if (interactWithUI != null && hand.grabGripAction.GetState(hand.handType) && !hand.grabPinchAction.GetState(hand.handType))
             {
                 pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = clickColor;
 
                 pointingObj = hit.collider.gameObject;
 
-                pointingHoverObjInst = Instantiate(pointingHoverObj, hit.point, Quaternion.identity);
+                //pointingHoverObjInst = Instantiate(pointingHoverObj, hit.point, Quaternion.identity);
 
 
-                hand.hoverSphereTransform = pointingHoverObjInst.transform;
+                hand.hoverSphereTransform.position = hit.point;
 
             }
             else
@@ -198,9 +204,9 @@ namespace Valve.VR.Extras
 
                 pointingObj = null;
 
-                Destroy(pointingHoverObjInst.gameObject);
+                //Destroy(pointingHoverObjInst.gameObject);
 
-                hand.hoverSphereTransform = pointingHoverObj.transform;
+                hand.hoverSphereTransform.position = pointingHoverObjTransformOrigin.transform.position;
             }
 
 

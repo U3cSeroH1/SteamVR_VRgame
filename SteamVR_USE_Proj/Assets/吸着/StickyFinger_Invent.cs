@@ -10,14 +10,14 @@ public class StickyFinger_Invent : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("OnTriggerStay");
+
     }
 
     void Update()
     {
     }
 
-    IEnumerator OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
         if (other.transform.parent.gameObject.GetComponent<Interactable>())
@@ -26,7 +26,7 @@ public class StickyFinger_Invent : MonoBehaviour
 
             if (!_parent.gameObject.GetComponent<Interactable>().attachedToHand)
             {
-                yield return new WaitForSeconds(0.001f);
+                
                 _parent.gameObject.transform.parent = transform.parent;
 
 
