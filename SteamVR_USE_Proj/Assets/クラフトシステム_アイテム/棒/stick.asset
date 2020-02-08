@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afa34beb75bcbe4496e5d13857597d9, type: 3}
   m_Name: stick
   m_EditorClassIdentifier: 
-  kindOfItem: 0
+  kindOfItem: 1
   gameObject: {fileID: 8466994227329630217, guid: 735a7fc9edde7274fb9cc0c766dbaeb1,
     type: 3}
   itemName: "\u68D2"

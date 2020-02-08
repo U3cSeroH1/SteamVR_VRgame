@@ -8,6 +8,8 @@ public class StickyFinger_Crafting : MonoBehaviour
     GameObject _parent;
     public GameObject HoldItem = null;
 
+    public float minScalePer = 0.1f;
+
     //public bool ChangeedHoldItem=false;
 
     //public CraftingSystem craftingSystem = null;
@@ -24,44 +26,70 @@ public class StickyFinger_Crafting : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.parent.gameObject.GetComponent<Interactable>())
+
+        if (!HoldItem)
         {
-            _parent = other.transform.parent.gameObject;
-
-            if (!_parent.gameObject.GetComponent<Interactable>().attachedToHand && !HoldItem)
+            if (other.transform.parent.gameObject.GetComponent<Interactable>())
             {
+                _parent = other.transform.parent.gameObject;
 
-                _parent.gameObject.transform.parent = transform.parent;
+                if (!_parent.gameObject.GetComponent<Interactable>().attachedToHand)
+                {
+
+                    _parent.gameObject.transform.parent = transform.parent;
 
 
-                _parent.gameObject.transform.position = this.transform.position;
-                _parent.gameObject.transform.rotation = this.transform.rotation;
+                    _parent.gameObject.transform.position = this.transform.position;
+                    _parent.gameObject.transform.rotation = this.transform.rotation;
+                    _parent.gameObject.transform.localScale = _parent.gameObject.transform.localScale * minScalePer;
 
+                    _parent.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-                _parent.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    HoldItem = _parent.gameObject;
 
-                HoldItem = _parent.gameObject;
+                    //ChangeedHoldItem = true;
 
-                //ChangeedHoldItem = true;
+                    //craftingSystem.canCraft();
 
-                //craftingSystem.canCraft();
-
+                }
             }
-            else if (_parent.gameObject.GetComponent<Interactable>().attachedToHand && HoldItem)
+        }
+        else// Holditem
+        {
+            if (HoldItem.GetComponent<Interactable>())
             {
-                _parent.gameObject.transform.parent = null;
-                _parent.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                
 
-                HoldItem = null;
-                //ChangeedHoldItem = true;
+                if (HoldItem.GetComponent<Interactable>().attachedToHand)
+                {
+                    HoldItem.transform.parent = null;
+                    HoldItem.GetComponent<Rigidbody>().isKinematic = false;
+                    HoldItem.transform.localScale = HoldItem.transform.localScale / minScalePer;
 
-                //craftingSystem.canCraft();
+                    HoldItem = null;
+                    //ChangeedHoldItem = true;
+
+                    //craftingSystem.canCraft();
+                }
             }
 
 
         }
+
+
+
 
     }
 }

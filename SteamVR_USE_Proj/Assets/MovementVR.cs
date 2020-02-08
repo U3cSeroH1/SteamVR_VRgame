@@ -77,9 +77,12 @@ public class MovementVR : MonoBehaviour
 
         m_AntiBumpFactor = 0;
 
-        if (isAngleGround && !FowerdIsAngled)
+        if (isGround && isAngleGround && !FowerdIsAngled)
         {
-            m_AntiBumpFactor = -0.75f;
+            //m_AntiBumpFactor = -0.75f;
+
+            rigidbody.AddForce(moveForceMultiplier * (new Vector3(0, AntiBumpFactor, 0)), ForceMode.Force);
+
         }
 
 
@@ -109,7 +112,7 @@ public class MovementVR : MonoBehaviour
 
         if (MovePress.state || called)
         {
-            moveVector = MaxSpeed * ( Quaternion.Euler(0, leftcontroller.transform.eulerAngles.y, 0) * new Vector3(moveX, m_AntiBumpFactor, moveZ));
+            moveVector = MaxSpeed * ( Quaternion.Euler(0, leftcontroller.transform.eulerAngles.y, 0) * new Vector3(moveX, 0, moveZ));
 
             rigidbody.AddForce(moveForceMultiplier * (moveVector - rigidbody.velocity), ForceMode.Force);
 
@@ -200,7 +203,7 @@ public class MovementVR : MonoBehaviour
         layerMask = ~layerMask;
 
         RaycastHit Hit;
-        if (Physics.Raycast(SteamObjPlayer.feetPositionGuess, Quaternion.Euler(0, leftcontroller.transform.eulerAngles.y, 0) * new Vector3(moveX, 0, moveZ), out Hit, .2f, layerMask))
+        if (Physics.Raycast(SteamObjPlayer.feetPositionGuess, Quaternion.Euler(0, leftcontroller.transform.eulerAngles.y, 0) *  new Vector3(moveX, 0, moveZ), out Hit, .2f, layerMask))
         {
             if (Vector3.Angle(Hit.normal, Vector3.up) != 0)
             {
@@ -226,9 +229,9 @@ public class MovementVR : MonoBehaviour
     void OnDrawGizmos()
     {
         //　Capsuleのレイを疑似的に視覚化
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(SteamObjPlayer.feetPositionGuess, CapCollider.radius);
-        Gizmos.DrawWireSphere(Head.position, CapCollider.radius);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(SteamObjPlayer.feetPositionGuess, CapCollider.radius);
+        //Gizmos.DrawWireSphere(Head.position, CapCollider.radius);
     }
 
     private void OnCollisionEnter(Collision collision)

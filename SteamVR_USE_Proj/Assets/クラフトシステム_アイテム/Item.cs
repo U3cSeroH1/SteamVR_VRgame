@@ -18,7 +18,8 @@ public class Item : ScriptableObject
     public enum KindOfItem
     {
         Weapon,
-        UseableItem
+        UseableItem,
+        StorageItem,
 
     }
 

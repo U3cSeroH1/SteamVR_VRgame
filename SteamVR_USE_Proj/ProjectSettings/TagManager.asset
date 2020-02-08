@@ -19,8 +19,8 @@ TagManager:
   - 
   - MyBody
   - MyHand
-  - 
-  - 
+  - ItemInInventory
+  - StereoRender_Ignore
   - 
   - 
   - 
