@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: torch
   m_EditorClassIdentifier: 
   kindOfItem: 0
+  deepItemKind: 5
   gameObject: {fileID: 4058244414772283791, guid: a55bc9c0dcb408e43ac957bb96c9d841,
     type: 3}
   itemName: "\u677E\u660E"

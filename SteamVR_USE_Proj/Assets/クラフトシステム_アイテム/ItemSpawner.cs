@@ -35,7 +35,17 @@ public class ItemSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        Instantiate(items[Succecer].GetgameObject(), SpawnPoint.transform.position, Quaternion.identity);
+
+        if (SpawnPoint)
+        {
+            Instantiate(items[Succecer].GetgameObject(), SpawnPoint.transform.position, Quaternion.identity);
+
+        }
+        else
+        {
+            Instantiate(items[Succecer].GetgameObject(), this.transform.position, Quaternion.identity);
+
+        }
 
     }
 

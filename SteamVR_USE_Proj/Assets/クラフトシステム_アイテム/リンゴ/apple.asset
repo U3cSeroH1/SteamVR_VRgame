@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: apple
   m_EditorClassIdentifier: 
   kindOfItem: 1
+  deepItemKind: 6
   gameObject: {fileID: 1205557303475619892, guid: dbf6d9fedb45d914e8fa3488416dedc8,
     type: 3}
   itemName: "\u30EA\u30F3\u30B4"

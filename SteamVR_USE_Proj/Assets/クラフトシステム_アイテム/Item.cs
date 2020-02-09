@@ -17,16 +17,35 @@ public class Item : ScriptableObject
 
     public enum KindOfItem
     {
-        Weapon,
+        ToolItem,
         UseableItem,
         StorageItem,
-
     }
+
+    public enum DeepItemKind
+    {
+        PickAxeTool,
+        AxeTool,
+        ShovelTool,
+        MeleeWeaponTool,
+        RangedWeaponTool,
+        OtherTool,
+        EatItem,
+        PotionItem,
+        OtherItem,
+        BackPackStorage,
+        ChestStorage,
+        OtherStorage,
+    }
+
 
 
     //　アイテムの種類
     [SerializeField]
     private KindOfItem kindOfItem;
+    //　アイテムの子の種類
+    [SerializeField]
+    private DeepItemKind deepItemKind;
     //　アイテムのアイコン
     [SerializeField]
     private GameObject gameObject;
@@ -46,6 +65,12 @@ public class Item : ScriptableObject
     {
         return kindOfItem;
     }
+
+    public DeepItemKind GetDeepItemKind()
+    {
+        return deepItemKind;
+    }
+
 
     public GameObject GetgameObject()
     {

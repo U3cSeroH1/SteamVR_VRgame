@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: stick
   m_EditorClassIdentifier: 
   kindOfItem: 1
+  deepItemKind: 8
   gameObject: {fileID: 8466994227329630217, guid: 735a7fc9edde7274fb9cc0c766dbaeb1,
     type: 3}
   itemName: "\u68D2"

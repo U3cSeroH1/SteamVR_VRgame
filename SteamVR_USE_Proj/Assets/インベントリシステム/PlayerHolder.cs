@@ -9,7 +9,7 @@ public class PlayerHolder : MonoBehaviour
     public new CapsuleCollider collider = null;
     public GameObject Head = null;
 
-    public float BeltRadius = 0.25f;
+    public float BeltRadius = 0.4f;
     public float HolderRadiusSpeed = 1.5f;
 
     public GameObject ItemholderHost = null;

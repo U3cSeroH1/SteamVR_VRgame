@@ -125,7 +125,7 @@ public class Sticky_Inventory : MonoBehaviour
 
                     //craftingSystem.canCraft();
 
-                    SetLayerRecursively(_parent, 9);
+                    SetLayerRecursively(_parent, 10);
 
 
 

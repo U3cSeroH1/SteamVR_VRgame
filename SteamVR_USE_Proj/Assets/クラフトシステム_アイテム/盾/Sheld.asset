@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sheld
   m_EditorClassIdentifier: 
   kindOfItem: 0
+  deepItemKind: 3
   gameObject: {fileID: 7275258057463791490, guid: 3dd2ecfa22dc0e1409f21b1692201dff,
     type: 3}
   itemName: "\u76FE"
