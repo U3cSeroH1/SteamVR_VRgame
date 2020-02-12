@@ -44,7 +44,7 @@ public class InventorySystem : MonoBehaviour
                 objPos.x += -((objBounds.size.x + slotGap) * ChangeLine);
             }
 
-            Debug.Log("でたああ");
+            //Debug.Log("でたああ");
             if (useX) objPos.x += objBounds.size.x + slotGap;
 
             if (useY) objPos.y -= objBounds.size.y + slotGap;

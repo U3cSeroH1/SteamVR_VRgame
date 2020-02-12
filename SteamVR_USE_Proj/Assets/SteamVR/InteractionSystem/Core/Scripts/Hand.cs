@@ -619,7 +619,7 @@ namespace Valve.VR.InteractionSystem
             objectToAttach.SendMessage("OnAttachedToHand", this, SendMessageOptions.DontRequireReceiver);
 
             //追加コード:持ったアイテムのレイヤー変更
-            SetLayerRecursively(attachedObject.attachedObject, 9);
+            SetLayerRecursively(attachedObject.attachedObject, 14);
 
         }
 

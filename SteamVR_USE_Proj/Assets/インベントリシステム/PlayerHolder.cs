@@ -35,11 +35,11 @@ public class PlayerHolder : MonoBehaviour
 
     public void ItemholderController()
     {
-        Itemholder_Back.transform.localPosition = new Vector3(0, player.eyeHeight / 3f, -BeltRadius);
+        Itemholder_Back.transform.localPosition = new Vector3(0, player.eyeHeight / 2.5f, -BeltRadius);
 
 
         ItemholderHost.transform.position = new Vector3(player.hmdTransform.position.x, player.trackingOriginTransform.position.y + player.eyeHeight/2f, player.hmdTransform.position.z);
-        Debug.Log(player.bodyDirectionGuess);
+        //Debug.Log(player.bodyDirectionGuess);
 
         //ItemholderHost.transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3 (0, (player.leftHand.gameObject.transform.rotation * player.rightHand.gameObject.transform.rotation).y, 0));
 

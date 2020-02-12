@@ -69,6 +69,15 @@ public class HitEvent : MonoBehaviour
         }
         else if (UnderHitVelocity > collision.relativeVelocity.magnitude)
         {
+            onTakeHitModerate.Invoke();
+
+        }
+
+        else
+        {
+
+
+
             if (TakeableHitCount <= TakeHitCount)
             {
                 onTakeHitUnder.Invoke();
@@ -78,11 +87,6 @@ public class HitEvent : MonoBehaviour
             {
                 TakeHitCount += 0.5f;
             }
-
-        }
-        else
-        {
-            onTakeHitModerate.Invoke();
         }
 
     }

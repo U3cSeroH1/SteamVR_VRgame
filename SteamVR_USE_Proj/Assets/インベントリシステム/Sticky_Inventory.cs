@@ -54,7 +54,7 @@ public class Sticky_Inventory : MonoBehaviour
                     //ChangeedHoldItem = true;
 
                     //craftingSystem.canCraft();
-                    SetLayerRecursively(_parent, 9);
+                    SetLayerRecursively(_parent, 14);
 
 
                 }

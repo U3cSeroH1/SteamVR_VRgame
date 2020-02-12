@@ -171,7 +171,7 @@ public class MovementVR : MonoBehaviour
 
     public void CheckGround()
     {
-        int layerMask = 1 << 9;
+        int layerMask = 1 << 14 | 1 << 9;
         layerMask = ~layerMask;
 
         RaycastHit Hit;
@@ -188,7 +188,7 @@ public class MovementVR : MonoBehaviour
                 isAngleGround = false;
             }
 
-            Debug.Log("今いる床の角度" + Vector3.Angle(Hit.normal, Vector3.up));
+            //Debug.Log("今いる床の角度" + Vector3.Angle(Hit.normal, Vector3.up));
         }
         else
         {
@@ -199,7 +199,7 @@ public class MovementVR : MonoBehaviour
 
     public void CheckGroundAngleFowerd()
     {
-        int layerMask = 1 << 9;
+        int layerMask = 1 << 14;
         layerMask = ~layerMask;
 
         RaycastHit Hit;
@@ -214,7 +214,7 @@ public class MovementVR : MonoBehaviour
                 FowerdIsAngled = false;
             }
 
-            Debug.Log("目の前の角度"+Vector3.Angle(Hit.normal, Vector3.up));
+            //Debug.Log("目の前の角度"+Vector3.Angle(Hit.normal, Vector3.up));
         }
         else
         {

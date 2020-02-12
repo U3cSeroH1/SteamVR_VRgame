@@ -42,7 +42,7 @@ public class CraftingSystem : MonoBehaviour
             if (CompareListCustom(it.Recipe, itemPlaceArea.PlacedItem))//あるアイテムのレシピと今のクラフト台の上が合致してる？？
             {
 
-                Debug.Log("確認1if\t" + it.ToString());
+                //Debug.Log("確認1if\t" + it.ToString());
 
                 CraftableItem = it.GetgameObject();
 
@@ -52,7 +52,7 @@ public class CraftingSystem : MonoBehaviour
             else
             {
                 //Debug.Log("クラフト不可");
-                Debug.Log("確認2else\t" + it.ToString());
+                //Debug.Log("確認2else\t" + it.ToString());
                 CraftableItem = null;
             }
         }
@@ -70,7 +70,7 @@ public class CraftingSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("クラフト不可");
+            //Debug.Log("クラフト不可");
         }
 
 
@@ -107,7 +107,7 @@ public class CraftingSystem : MonoBehaviour
 
                     if(ary2Buffer.Find(item2 => item2 == item1) == null)
                     {
-                        Debug.Log("確認3null\t" + item1.ToString() + "との比較により");
+                        //Debug.Log("確認3null\t" + item1.ToString() + "との比較により");
 
                         isEqual = false;
 
