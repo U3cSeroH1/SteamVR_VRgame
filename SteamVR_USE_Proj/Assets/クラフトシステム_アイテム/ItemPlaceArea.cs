@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemPlaceArea : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class ItemPlaceArea : MonoBehaviour
 
     public List<GameObject> PlacedItemasGameobj = new List<GameObject>();
     public List<Item> PlacedItem = new List<Item>();
+
+    public UnityEvent PlaceItemChanged;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,12 +22,16 @@ public class ItemPlaceArea : MonoBehaviour
 
             PlacedItemasGameobj.Add(other.transform.parent.gameObject);
             PlacedItem.Add(other.transform.parent.gameObject.GetComponent<ItemTypeChecker>().ItemType);
+
+            PlaceItemChanged.Invoke();
+
         }
 
         else
         {
 
         }
+
 
 
     }
@@ -35,6 +43,8 @@ public class ItemPlaceArea : MonoBehaviour
 
             PlacedItemasGameobj.Remove(other.transform.parent.gameObject);
             PlacedItem.Remove(other.transform.parent.gameObject.GetComponent<ItemTypeChecker>().ItemType);
+
+            PlaceItemChanged.Invoke();
         }
 
         else
@@ -55,7 +65,9 @@ public class ItemPlaceArea : MonoBehaviour
 
         PlacedItem.Clear();
         PlacedItemasGameobj.Clear();
-        
+
+        PlaceItemChanged.Invoke();
+
     }
 
 }

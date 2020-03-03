@@ -1,0 +1,18 @@
+Mathf.abs
+out:1000001
+time:26.8517 | 2.68517E-05 ms
+Math.abs
+out:1000001
+time:19.4321 | 1.94321E-05 ms
+Helpers.Abs
+out:1000001
+time:18.516 | 1.8516E-05 ms
+i < 0 ? -i : i
+out:1000001
+time:12.9978 | 1.29978E-05 ms
+(i + mask) ^ mask
+out:1000001
+time:12.4019 | 1.24019E-05 ms
+(i + (i >> 31)) ^ (i >> 31)
+out:1000001
+time:11.4551 | 1.14551E-05 ms

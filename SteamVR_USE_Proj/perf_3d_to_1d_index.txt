@@ -1,0 +1,9 @@
+GetIndex3DFrom1D
+out:1000001, x:11,y:1111,z:3
+time:24.5717 | 2.45717E-05 ms
+GetIndex3DFrom1D non_pow_of_2
+out:1000001, x:2,y:918,z:9
+time:24.2984 | 2.42984E-05 ms
+GetChunkIndex3DFrom1D
+out:1000001, x:0,y:975,z:17
+time:22.8079 | 2.28079E-05 ms

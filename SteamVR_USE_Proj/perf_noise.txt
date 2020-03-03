@@ -1,0 +1,6 @@
+noise.Generate 2D
+out:-978.8818
+time:40.6752 | 4.06752 ms
+noise.Generate 3D
+out:-447.1487
+time:49.9619 | 4.99619 ms

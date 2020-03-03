@@ -132,14 +132,15 @@ Shader "Valve/VR/Silhouette"
 
 	SubShader
 	{
-		Tags { "RenderType"="Outline" "Queue" = "Geometry-1"  }
+		Tags { "RenderType"="Opaque" "Queue" = "Geometry-1" "RenderPipeline" = "UniversalPipeline"
+	"IgnoreProjector" = "True" }
 
 		//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Render the object with stencil=1 to mask out the part that isn't the silhouette
 		//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 		Pass
 		{
-			Tags { "LightMode" = "Always" }
+			Tags { "LightMode" = "DepthOnly" }
 			ColorMask 0
 			Cull Off
 			ZWrite Off
@@ -162,7 +163,7 @@ Shader "Valve/VR/Silhouette"
 		//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 		Pass
 		{
-			Tags { "LightMode" = "Always" }
+			Tags { "LightMode" = "UniversalForward" }
 			Cull Off
 			ZWrite On
 			Stencil

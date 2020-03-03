@@ -90,7 +90,7 @@ namespace Valve.VR.Extras
 
                 pointer = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 pointer.transform.parent = holder.transform;
-                pointer.transform.localScale = new Vector3(thickness, thickness, 5f);
+                pointer.transform.localScale = new Vector3(thickness, thickness, 3f);
                 pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
                 pointer.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
@@ -123,7 +123,7 @@ namespace Valve.VR.Extras
                 this.transform.GetChild(0).gameObject.SetActive(true);
             }
 
-            float dist = 100f;
+            float dist = 3f;
 
                 //            case GrabTypes.Pinch:
                 //    return grabPinchAction.GetState(handType);
@@ -141,7 +141,7 @@ namespace Valve.VR.Extras
             }
 
             RaycastHit hit;
-            bool bHit = Physics.Raycast(raycast, out hit);
+            bool bHit = Physics.Raycast(raycast, out hit, 3f);
 
             if (previousContact && previousContact != hit.transform)
             {

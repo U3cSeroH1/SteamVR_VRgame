@@ -11,7 +11,9 @@ public class CraftingSystem : MonoBehaviour
 
     public ItemPlaceArea itemPlaceArea = null;
 
-    public GameObject CraftableItem = null;
+    public GameObject ProductsItem = null;
+
+    public List<GameObject> CraftableItem = new List<GameObject>();
 
     public GameObject SpawnPoint = null;
 
@@ -30,11 +32,13 @@ public class CraftingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isCraftable();
+        //isCraftable();
     }
 
     public void isCraftable()
     {
+
+        CraftableItem.Clear();
 
         foreach (Item it in itemDataBase.GetItemLists())//アイテムデータベースを回す
         {
@@ -44,7 +48,9 @@ public class CraftingSystem : MonoBehaviour
 
                 //Debug.Log("確認1if\t" + it.ToString());
 
-                CraftableItem = it.GetgameObject();
+                CraftableItem.Add(it.GetgameObject());
+
+                //ProductsItem = it.GetgameObject();
 
                 break;
 
@@ -53,7 +59,7 @@ public class CraftingSystem : MonoBehaviour
             {
                 //Debug.Log("クラフト不可");
                 //Debug.Log("確認2else\t" + it.ToString());
-                CraftableItem = null;
+                //ProductsItem = null;
             }
         }
     }
@@ -61,10 +67,14 @@ public class CraftingSystem : MonoBehaviour
 
     public void Spawn()
     {
-        if (CraftableItem)
+        if (CraftableItem?.Count > 0)
         {
-            Instantiate(CraftableItem, SpawnPoint.transform.position, Quaternion.identity);
-            CraftableItem = null;
+
+            Instantiate(ProductsItem, SpawnPoint.transform.position, Quaternion.identity);
+
+            CraftableItem.Clear();
+
+            ProductsItem = null;
 
             itemPlaceArea.ItemRemover();
         }

@@ -355,7 +355,7 @@ namespace Valve.VR.InteractionSystem
 				{
 					if ( hand.otherHand.currentAttachedObject.GetComponent<ItemPackageReference>().itemPackage == arrowHandItemPackage )
 					{
-						hand.otherHand.DetachObject( hand.otherHand.currentAttachedObject );
+						//hand.otherHand.DetachObject( hand.otherHand.currentAttachedObject );
 					}
 				}
 			}

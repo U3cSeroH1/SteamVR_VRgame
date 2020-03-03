@@ -1,0 +1,27 @@
+noise.Generate 1D
+out:0, downsample factor 1
+time:0.0337 | 0.00337 ms
+noise.Generate 1D
+out:0, downsample factor 2
+time:0.0226 | 0.00226 ms
+noise.Generate 1D
+out:0, downsample factor 3
+time:0.0168 | 0.00168 ms
+noise.Generate 2D
+out:0, downsample factor 1
+time:0.9856 | 0.09856 ms
+noise.Generate 2D
+out:0, downsample factor 2
+time:0.763 | 0.0763 ms
+noise.Generate 2D
+out:0, downsample factor 3
+time:0.7972 | 0.07972 ms
+noise.Generate 3D
+out:-1387.04, downsample factor 1
+time:42.6554 | 4.26554 ms
+noise.Generate 3D
+out:2915.691, downsample factor 2
+time:35.3571 | 3.53571 ms
+noise.Generate 3D
+out:-14237.92, downsample factor 3
+time:34.3808 | 3.43808 ms

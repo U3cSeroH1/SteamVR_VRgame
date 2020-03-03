@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 1205557303475619898}
   - component: {fileID: 1205557303475619893}
   - component: {fileID: 1205557303475619897}
+  - component: {fileID: 3599223987569292334}
   m_Layer: 0
   m_Name: "\u30EA\u30F3\u30B4"
   m_TagString: Untagged
@@ -295,3 +296,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: {fileID: 11400000, guid: edecb3e4601d94c47ac2fcbe59c7dc67, type: 2}
+--- !u!114 &3599223987569292334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205557303475619892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c8a2974cd709d479a3f4742beb14f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calculateDensity: 0
+  density: 0.75
+  normalizedVoxelSize: 0.5
+  dragInWater: 1
+  angularDragInWater: 1
