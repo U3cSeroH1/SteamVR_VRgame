@@ -17,7 +17,10 @@ namespace Valve.VR.InteractionSystem
 		private Hand hand;
 		private Longbow bow;
 
-		private GameObject currentArrow;
+		public GameObject currentArrow;
+
+		public GameObject arrowIns;
+
 		public GameObject arrowPrefab;
 
 		public Transform arrowNockTransform;
@@ -50,6 +53,8 @@ namespace Valve.VR.InteractionSystem
 			allowTeleport.overrideHoverLock = false;
 
 			arrowList = new List<GameObject>();
+
+			currentArrow = InstantiateArrow();
 		}
 
 
@@ -58,6 +63,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			hand = attachedHand;
 			FindBow();
+
 		}
 
 
@@ -86,7 +92,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void HandAttachedUpdate( Hand hand )
+		public void HandAttachedUpdate( Hand hand )
 		{
 			if ( bow == null )
 			{
@@ -98,11 +104,11 @@ namespace Valve.VR.InteractionSystem
 				return;
 			}
 
-			if ( allowArrowSpawn && ( currentArrow == null ) ) // If we're allowed to have an active arrow in hand but don't yet, spawn one
-			{
-				currentArrow = InstantiateArrow();
-				arrowSpawnSound.Play();
-			}
+			//if (allowArrowSpawn && (currentArrow == null)) // If we're allowed to have an active arrow in hand but don't yet, spawn one
+			//{
+			//	currentArrow = InstantiateArrow();
+			//	arrowSpawnSound.Play();
+			//}
 
 			float distanceToNockPosition = Vector3.Distance( transform.parent.position, bow.nockTransform.position );
 
@@ -216,17 +222,21 @@ namespace Valve.VR.InteractionSystem
 		}
 
 
-		//-------------------------------------------------
-		private void OnDetachedFromHand( Hand hand )
-		{
-			Destroy( gameObject );
-		}
+		////-------------------------------------------------
+		//private void OnDetachedFromHand( Hand hand )
+		//{
+		//	Destroy( gameObject );
+		//}
 
 
 		//-------------------------------------------------
 		private void FireArrow()
 		{
 			currentArrow.transform.parent = null;
+
+			//arrowIns = Instantiate(arrowPrefab, arrowNockTransform.position, arrowNockTransform.rotation) as GameObject;
+
+			//Physics.IgnoreCollision(arrowIns.GetComponent<Collider>(), gameObjectB.collider);
 
 			Arrow arrow = currentArrow.GetComponent<Arrow>();
 			arrow.shaftRB.isKinematic = false;
@@ -237,21 +247,22 @@ namespace Valve.VR.InteractionSystem
 			arrow.arrowHeadRB.useGravity = true;
 			arrow.arrowHeadRB.transform.GetComponent<BoxCollider>().enabled = true;
 
-			arrow.arrowHeadRB.AddForce( currentArrow.transform.forward * bow.GetArrowVelocity(), ForceMode.VelocityChange );
-			arrow.arrowHeadRB.AddTorque( currentArrow.transform.forward * 10 );
+			arrow.arrowHeadRB.AddForce(currentArrow.transform.forward * 100, ForceMode.Impulse);
+			arrow.arrowHeadRB.AddTorque(currentArrow.transform.forward * 10);
 
 			nocked = false;
-            nockedWithType = GrabTypes.None;
+			nockedWithType = GrabTypes.None;
 
-			currentArrow.GetComponent<Arrow>().ArrowReleased( bow.GetArrowVelocity() );
+			currentArrow.GetComponent<Arrow>().ArrowReleased(bow.GetArrowVelocity());
 			bow.ArrowReleased();
 
 			allowArrowSpawn = false;
-			Invoke( "EnableArrowSpawn", 0.5f );
-			StartCoroutine( ArrowReleaseHaptics() );
+			Invoke("EnableArrowSpawn", 0.5f);
+			StartCoroutine(ArrowReleaseHaptics());
 
 			currentArrow = null;
 			allowTeleport.teleportAllowed = true;
+
 		}
 
 
@@ -281,16 +292,16 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void OnHandFocusLost( Hand hand )
+		private void OnHandFocusLost(Hand hand)
 		{
-			gameObject.SetActive( false );
+			gameObject.SetActive(false);
 		}
 
 
 		//-------------------------------------------------
-		private void OnHandFocusAcquired( Hand hand )
+		private void OnHandFocusAcquired(Hand hand)
 		{
-			gameObject.SetActive( true );
+			gameObject.SetActive(true);
 		}
 
 
