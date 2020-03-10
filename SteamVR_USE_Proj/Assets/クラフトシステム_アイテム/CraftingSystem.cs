@@ -52,7 +52,7 @@ public class CraftingSystem : MonoBehaviour
 
                 //ProductsItem = it.GetgameObject();
 
-                break;
+                //break;
 
             }
             else
@@ -67,8 +67,12 @@ public class CraftingSystem : MonoBehaviour
 
     public void Spawn()
     {
-        if (CraftableItem?.Count > 0)
+        if (CraftableItem?.Count > 0 && CraftableItem?.Count <= 1)
         {
+
+            Debug.Log(CraftableItem.Count);
+
+            ProductsItem = CraftableItem[0];
 
             Instantiate(ProductsItem, SpawnPoint.transform.position, Quaternion.identity);
 
@@ -78,6 +82,21 @@ public class CraftingSystem : MonoBehaviour
 
             itemPlaceArea.ItemRemover();
         }
+        else if (CraftableItem?.Count >= 2)
+        {
+            Debug.Log("レシピが重なってる！！治せ！！" + CraftableItem[0].name + CraftableItem[1].name);
+
+            ProductsItem = CraftableItem[1];
+
+            Instantiate(ProductsItem, SpawnPoint.transform.position, Quaternion.identity);
+
+            CraftableItem.Clear();
+
+            ProductsItem = null;
+
+            itemPlaceArea.ItemRemover();
+        }
+
         else
         {
             //Debug.Log("クラフト不可");

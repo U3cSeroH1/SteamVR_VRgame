@@ -83,9 +83,9 @@ namespace Valve.VR.InteractionSystem
 			//{
 			//	if (hit.collider.gameObject != gameObject && hit.collider.gameObject != arrowHeadRB.gameObject && hit.collider != Player.instance.headCollider)
 			//	{
-			//		//Debug.Log(hit.collider.gameObject.name);
+			//		Debug.Log(hit.collider.gameObject.name);
 
-			//		Destroy(gameObject);
+			//		//Destroy(gameObject);
 			//		return;
 			//	}
 			//}

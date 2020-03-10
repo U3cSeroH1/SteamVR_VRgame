@@ -49,7 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 11400000, guid: c47a5f1fbe45dc044936700bd787e4c8, type: 2}
   itemPlaceArea: {fileID: 2091291900}
-  CraftableItem: {fileID: 0}
+  ProductsItem: {fileID: 0}
+  CraftableItem: []
   SpawnPoint: {fileID: 4905088869020669020}
   return2Item: []
 --- !u!1 &3141060847816528113
@@ -202,7 +203,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dc46742962ca64681fff2dfb134b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlacedItemasGameobj: []
   PlacedItem: []
+  PlaceItemChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9202094342187793071}
+        m_MethodName: isCraftable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3715552884738110074
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +420,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1353173742533815023, guid: 8c8da96bbc14ce54cb9283a6c07bc1f2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 2905164027089436739, guid: 8c8da96bbc14ce54cb9283a6c07bc1f2,
         type: 3}
       propertyPath: m_Name
@@ -443,6 +464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166564177355300673, guid: 8c8da96bbc14ce54cb9283a6c07bc1f2,
+        type: 3}
+      propertyPath: highlightOnHover
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8166564177715380289, guid: 8c8da96bbc14ce54cb9283a6c07bc1f2,
         type: 3}

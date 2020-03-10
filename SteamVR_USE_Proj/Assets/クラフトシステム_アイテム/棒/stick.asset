@@ -20,5 +20,5 @@ MonoBehaviour:
   information: "\u68D2"
   Recipe:
   - {fileID: 11400000, guid: edecb3e4601d94c47ac2fcbe59c7dc67, type: 2}
-  - {fileID: 11400000, guid: 309976b47d202b54fbb4b6f2bf6a1aa0, type: 2}
-  - {fileID: 11400000, guid: 199b373c960d59347b3fedd28d7108e2, type: 2}
+  - {fileID: 11400000, guid: edecb3e4601d94c47ac2fcbe59c7dc67, type: 2}
+  - {fileID: 11400000, guid: edecb3e4601d94c47ac2fcbe59c7dc67, type: 2}

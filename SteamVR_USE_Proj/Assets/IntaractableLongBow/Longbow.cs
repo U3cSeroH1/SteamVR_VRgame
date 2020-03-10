@@ -371,17 +371,17 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void OnHandFocusAcquired( Hand hand )
+		private void OnHandFocusAcquired(Hand hand)
 		{
-			gameObject.SetActive( true );
-			OnAttachedToHand( hand );
+			gameObject.SetActive(true);
+			OnAttachedToHand(hand);
 		}
 
 
 		////-------------------------------------------------
-		//private void OnDetachedFromHand( Hand hand )
+		//private void OnDetachedFromHand(Hand hand)
 		//{
-		//	Destroy( gameObject );
+		//	Destroy(gameObject);
 		//}
 
 

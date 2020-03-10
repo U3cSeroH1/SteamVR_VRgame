@@ -89,5 +89,9 @@ public class Climber : MonoBehaviour
                 }
             }
         }
+
+
+
+
     }
 }
