@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Leaf
+  m_Shader: {fileID: 4800000, guid: 5a6e7e3b547b82a4bb5edf7c91caa464, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_73A18E88: 1
+    - Vector1_22945F37: -1.58
+    - Vector1_54EC8D1B: 1
+    - Vector1_814530F0: 0.774
+    - Vector1_85BF2D7B: 59.57
+    - Vector1_8D24CCBB: 20
+    - Vector1_967624D6: 1.29
+    - Vector1_9B013F21: 50
+    - Vector1_B3FFAA06: 1
+    - Vector1_B655D323: 0.5
+    - Vector1_C37359FA: 2
+    - Vector1_EB0BDD0D: 1
+    - Vector1_F831175F: 2
+    - Vector1_FA5BD4D7: 37.18
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    - _b_influence: 1
+    - _branches_disp: 0.3
+    - _leaves_wiggle_disp: 0.07
+    - _leaves_wiggle_speed: 0.01
+    - _r_influence: 1
+    - _tree_sway_disp: 0.3
+    - _tree_sway_speed: 1
+    - _tree_sway_stutter: 1.5
+    - _tree_sway_stutter_influence: 0.2
+    - _wind_size: 15
+    m_Colors:
+    - Color_1E3516FF: {r: 0.745283, g: 0.5578905, b: 0.24959946, a: 0}
+    - Color_1F9E15B2: {r: 1, g: 1, b: 1, a: 0}
+    - Color_4FBC447: {r: 0.30552557, g: 0.75471693, b: 0.10323957, a: 0}
+    - Color_781BF453: {r: 0.9056604, g: 0.02506206, b: 0, a: 0}
+    - Color_984BFD57: {r: 0.9056604, g: 0.61263126, b: 0.17515126, a: 0}
+    - Color_9B4593B7: {r: 0.75471693, g: 0.75471693, b: 0.75471693, a: 0}
+    - Color_C2373DE7: {r: 0.11016748, g: 0.46226412, b: 0.0981221, a: 0}
+    - Color_E4F48222: {r: 0.39622638, g: 0.27379888, b: 0.07289069, a: 0}
+    - Vector2_3F1DBD37: {r: 3.36, g: 0, b: 45.26, a: 0}
+    - Vector2_6B794E2A: {r: 11.37, g: 110.5, b: 176.6, a: 51.27}
+    - Vector2_8AC5A996: {r: 2.1, g: 31.22, b: 71.33, a: 70.83}
+    - Vector2_C50737C: {r: 144.09, g: 167.75, b: 252.25, a: 0}
+    - Vector2_EB9EF6FE: {r: -0.2, g: -0.1, b: 0, a: 0}
+    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _wind_dir: {r: 0.5, g: 0.05, b: 0.5, a: 0}
+--- !u!114 &154811673934009702
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1

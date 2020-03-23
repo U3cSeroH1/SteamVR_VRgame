@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Material_Flag
   m_Shader: {fileID: 4800000, guid: 18b5f65cf64560248bac2a9d8619217e, type: 3}
   m_ShaderKeywords: 
@@ -59,12 +60,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_14ED5E41: 0.19
+    - Vector1_1FD8DF1D: 0.07
     - Vector1_270ABF42: 6.44
     - Vector1_4D58B5B3: 0.93
+    - Vector1_5124C0BB: 19.38
     - Vector1_5C8C9C10: -0.22
     - Vector1_6AF0B92A: 11.3
     - Vector1_71760C5: -0.14
+    - Vector1_7364B03: 6.8
     - Vector1_79F402B5: 12.63
+    - Vector1_8D972C: -0.168
+    - Vector1_9B458A08: 13.62
+    - Vector1_B85694EA: 2.2
     - Vector1_D47E73FB: 0.08
     - _AlphaClip: 0
     - _Blend: 0
@@ -87,11 +95,17 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_95E9FD3A: {r: 0.9323986, g: 0.9339623, b: 0.9119349, a: 0}
     - Color_96AFF124: {r: 0.0211819, g: 0.025623169, b: 0.03773582, a: 0}
+    - Color_DCE73F14: {r: 0.0211819, g: 0.025623169, b: 0.03773582, a: 0}
     - Color_E84B64D2: {r: 1, g: 1, b: 1, a: 0}
+    - Vector2_27112B0F: {r: -1, g: -0.25, b: 0, a: 0}
+    - Vector2_4D77EB70: {r: 1, g: 2, b: 0, a: 0}
     - Vector2_61983782: {r: 1, g: 2.75, b: 0, a: 0}
     - Vector2_73C0661C: {r: 3, g: 1.5, b: 0, a: 0}
+    - Vector2_8F7C8165: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_CA9898C7: {r: -1, g: -0.25, b: 0, a: 0}
+    - Vector2_E017696C: {r: 3, g: 1.5, b: 0, a: 0}
     - Vector2_F4A204A9: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

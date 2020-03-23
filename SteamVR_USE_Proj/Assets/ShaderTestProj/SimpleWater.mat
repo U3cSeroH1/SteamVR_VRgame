@@ -10,13 +10,14 @@ Material:
   m_Name: SimpleWater
   m_Shader: {fileID: -6465566751694194690, guid: 27b042674da390c46a1ff4cc2317d5f2,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _SPECULAR_SETUP
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -25,6 +26,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -44,49 +57,147 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_E5EE9C64_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1574EF12: 0
+    - Vector1_1AE1D4CB: 0.133
+    - Vector1_1E58CA3C: 0.3
+    - Vector1_24DAD7F: 0.1
     - Vector1_29A8EAB: 0
+    - Vector1_2EC3FF0E: 0.1
+    - Vector1_3435466D: 0.4
+    - Vector1_35EA7515: -5.7
+    - Vector1_39047021: 0.5
+    - Vector1_39222957: 0.531
     - Vector1_3C2CF0EB: 0
+    - Vector1_3D495A1F: 0.9
+    - Vector1_41C70C3B: 2
+    - Vector1_41D69EE4: 1.05
+    - Vector1_420F972: 2
+    - Vector1_46458E33: 0
+    - Vector1_489F9EEF: 3
+    - Vector1_4B305923: 5.65
+    - Vector1_4F3607E6: 0
+    - Vector1_4F92311A: 1
+    - Vector1_4FFCA278: 0
+    - Vector1_51075417: 0.63
+    - Vector1_5190E028: 0.37
+    - Vector1_5232C9B8: 1
     - Vector1_53B9698E: 5
+    - Vector1_5D9B9578: 10
+    - Vector1_5EB91206: 0.56
     - Vector1_6D9DC178: 0
+    - Vector1_6DA97D7: 35
+    - Vector1_722CB011: 0
+    - Vector1_7ADF35B9: 0.4
     - Vector1_7AF2EB89: 0.56
-    - Vector1_88B47978: 0.8
+    - Vector1_7FB5584F: 0.5
+    - Vector1_88B47978: 1
+    - Vector1_8BF7F1BF: 1
+    - Vector1_905986FC: 0.78
     - Vector1_93DCFAA9: 2.5
     - Vector1_95BBCBE0: 2000
+    - Vector1_986CF1D2: 14
+    - Vector1_998081CE: 0
+    - Vector1_9AFCD14F: 1
+    - Vector1_9E5F763C: 1
+    - Vector1_A38692A6: 0.6
+    - Vector1_ACE34316: 0
+    - Vector1_AD7DFD35: 0
+    - Vector1_B42C4654: 0.97
+    - Vector1_B64C5C84: 2
+    - Vector1_B73759EB: 6.83
+    - Vector1_B8621AE: 100
+    - Vector1_B98A4C60: 0
+    - Vector1_BB6289B2: 6
+    - Vector1_BC8BA90A: 2.12
+    - Vector1_BD72615D: 2.6
+    - Vector1_BF07B4C4: 1.9
+    - Vector1_C0E48198: 1
     - Vector1_C2F92B2F: 0
+    - Vector1_C338E3B1: 3.21
+    - Vector1_C534D6D3: 1
     - Vector1_C5543ECF: 5
-    - Vector1_E23798DE: 0.2
+    - Vector1_C6051FE9: 1.67
+    - Vector1_C95741CA: 100
+    - Vector1_CC89A15C: 1
+    - Vector1_CD1E3823: 1
+    - Vector1_D42CC29E: 2
+    - Vector1_D80D00D8: 1.81
+    - Vector1_E23798DE: 0.09
+    - Vector1_EF8F01E7: 10
+    - Vector1_F0FA9185: 6
+    - Vector1_F2029A8E: 1
+    - Vector1_F4A73BA: 0.77
+    - Vector1_F63FC2D5: 0.37
+    - Vector1_F68E0BAF: 0.35
+    - Vector1_F7D8374D: 0.13
+    - Vector1_F8A9D172: -6
+    - Vector1_F976D8BD: 0.518
+    - Vector1_FABC47E4: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Cull: 2
+    - _Cull: 0
     - _Cutoff: 0.5
-    - _DstBlend: 0
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 10
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _Mode: 0
     - _OcclusionStrength: 1
+    - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.581
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZWrite: 1
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _UVSec: 0
+    - _WorkflowMode: 0
+    - _ZWrite: 0
     m_Colors:
+    - Color_14C27626: {r: 0.8584906, g: 2, b: 2, a: 1}
+    - Color_172891C2: {r: 0, g: 0, b: 0, a: 0}
+    - Color_311FFDA5: {r: 0.8962264, g: 0.5368903, b: 0.8143709, a: 0}
+    - Color_3CACD0BA: {r: 0.21960783, g: 0.35294116, b: 0.50980395, a: 1}
+    - Color_571AD68A: {r: 0, g: 0, b: 0, a: 0}
+    - Color_6322D2DF: {r: 0.9411765, g: 0.8784314, b: 0.5333334, a: 1}
+    - Color_7382B7B: {r: 1, g: 0.97142863, b: 0, a: 0}
+    - Color_88B5EC91: {r: 0, g: 0.8665147, b: 1, a: 0}
+    - Color_8AD99287: {r: 1, g: 1, b: 1, a: 0}
+    - Color_936A8730: {r: 0.14509785, g: 0.9490196, b: 1, a: 1}
+    - Color_9766E39E: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0}
     - Color_A271762B: {r: 0, g: 0.04231142, b: 0.1682695, a: 0.6745098}
     - Color_AFFD055F: {r: 1, g: 1, b: 1, a: 1}
+    - Color_C7BF6842: {r: 0.32529366, g: 0.7501366, b: 0.8113207, a: 0}
+    - Color_D70B9788: {r: 0.14509797, g: 0.9490196, b: 1, a: 1}
+    - Color_DD4FFA5E: {r: 0.5607843, g: 0.33333328, b: 0.058823504, a: 1}
     - Color_E0824245: {r: 0.51957995, g: 0.619819, b: 0.7924528, a: 0.4823529}
+    - Color_E63B4CEF: {r: 0.14509797, g: 0.9490196, b: 1, a: 1}
+    - Color_F16B58A7: {r: 0.8773585, g: 0.8566661, b: 0.8566661, a: 0}
+    - Vector2_480312D8: {r: -0.03, g: -0.22, b: 0, a: 0}
+    - Vector2_B86025B3: {r: 0.5, g: 1, b: 0, a: 0}
+    - Vector2_D494475D: {r: 0.2, g: 0.2, b: 0, a: 0}
     - Vector4_221D49C4: {r: 0.03, g: 0.03, b: 0.09, a: 0.15}
-    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - Vector4_4F9D9450: {r: 0, g: 1, b: -1, a: 1}
+    - Vector4_641680B9: {r: 1, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.34963512, g: 0.50304776, b: 0.764151, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
