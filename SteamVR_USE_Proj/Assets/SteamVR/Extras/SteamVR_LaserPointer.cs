@@ -1,7 +1,6 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
-using Valve.VR.InteractionSystem;
 
 namespace Valve.VR.Extras
 {
@@ -13,7 +12,7 @@ namespace Valve.VR.Extras
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
 
         public bool active = true;
-        public Color color = new Color(0,0,0,0);
+        public Color color;
         public float thickness = 0.002f;
         public Color clickColor = Color.green;
         public GameObject holder;
@@ -25,26 +24,50 @@ namespace Valve.VR.Extras
         public event PointerEventHandler PointerOut;
         public event PointerEventHandler PointerClick;
 
-        //追加
-        public GameObject pointingObj;
-        public Hand hand;
-
-        public GameObject pointingHoverObj;
-        public GameObject pointingHoverObjTransformOrigin;
-
-
-
-        public GameObject Index;
-
-        private Ray raycast = new Ray();
-
-
         Transform previousContact = null;
 
 
         private void Start()
         {
-            //pointingHoverObjOriginTransform = pointingHoverObj.transform.position;
+            if (pose == null)
+                pose = this.GetComponent<SteamVR_Behaviour_Pose>();
+            if (pose == null)
+                Debug.LogError("No SteamVR_Behaviour_Pose component found on this object", this);
+
+            if (interactWithUI == null)
+                Debug.LogError("No ui interaction action has been set on this component.", this);
+
+
+            holder = new GameObject();
+            holder.transform.parent = this.transform;
+            holder.transform.localPosition = Vector3.zero;
+            holder.transform.localRotation = Quaternion.identity;
+
+            pointer = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            pointer.transform.parent = holder.transform;
+            pointer.transform.localScale = new Vector3(thickness, thickness, 100f);
+            pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
+            pointer.transform.localRotation = Quaternion.identity;
+            BoxCollider collider = pointer.GetComponent<BoxCollider>();
+            if (addRigidBody)
+            {
+                if (collider)
+                {
+                    collider.isTrigger = true;
+                }
+                Rigidbody rigidBody = pointer.AddComponent<Rigidbody>();
+                rigidBody.isKinematic = true;
+            }
+            else
+            {
+                if (collider)
+                {
+                    Object.Destroy(collider);
+                }
+            }
+            Material newMaterial = new Material(Shader.Find("Unlit/Color"));
+            newMaterial.SetColor("_Color", color);
+            pointer.GetComponent<MeshRenderer>().material = newMaterial;
         }
 
         public virtual void OnPointerIn(PointerEventArgs e)
@@ -68,80 +91,17 @@ namespace Valve.VR.Extras
 
         private void Update()
         {
-            //fuckinstartfuckbitchprograming
-            if (Index == null)
-            {
-                Index = this.transform.GetChild(6).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
-
-                if (pose == null)
-                    pose = this.GetComponent<SteamVR_Behaviour_Pose>();
-                if (pose == null)
-                    Debug.LogError("No SteamVR_Behaviour_Pose component found on this object", this);
-
-                if (interactWithUI == null)
-                    Debug.LogError("No ui interaction action has been set on this component.", this);
-
-
-
-                holder = new GameObject();
-                holder.transform.parent = Index.transform;
-                holder.transform.localPosition = Vector3.zero;
-                holder.transform.localRotation = Quaternion.Euler(0, 90, 0);
-
-                pointer = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                pointer.transform.parent = holder.transform;
-                pointer.transform.localScale = new Vector3(thickness, thickness, 3f);
-                pointer.transform.localPosition = new Vector3(0f, 0f, 50f);
-                pointer.transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-                BoxCollider collider = pointer.GetComponent<BoxCollider>();
-                if (addRigidBody)
-                {
-                    if (collider)
-                    {
-                        collider.isTrigger = true;
-                    }
-                    Rigidbody rigidBody = pointer.AddComponent<Rigidbody>();
-                    rigidBody.isKinematic = true;
-                }
-                else
-                {
-                    if (collider)
-                    {
-                        Object.Destroy(collider);
-                    }
-                }
-                Material newMaterial = new Material(Shader.Find("Unlit/Color"));
-                newMaterial.SetColor("_Color", color);
-                pointer.GetComponent<MeshRenderer>().material = newMaterial;
-            }
-
-
             if (!isActive)
             {
                 isActive = true;
                 this.transform.GetChild(0).gameObject.SetActive(true);
             }
 
-            float dist = 3f;
+            float dist = 100f;
 
-                //            case GrabTypes.Pinch:
-                //    return grabPinchAction.GetState(handType);
-
-                //case GrabTypes.Grip:
-                //    return grabGripAction.GetState(handType);
-
-            if (hand.handType == SteamVR_Input_Sources.RightHand)
-            {
-                raycast = new Ray(Index.transform.position, Index.transform.right);
-            }
-            else if (hand.handType == SteamVR_Input_Sources.LeftHand)
-            {
-                raycast = new Ray(Index.transform.position, -Index.transform.right);
-            }
-
+            Ray raycast = new Ray(transform.position, transform.forward);
             RaycastHit hit;
-            bool bHit = Physics.Raycast(raycast, out hit, 3f);
+            bool bHit = Physics.Raycast(raycast, out hit);
 
             if (previousContact && previousContact != hit.transform)
             {
@@ -172,7 +132,7 @@ namespace Valve.VR.Extras
                 dist = hit.distance;
             }
 
-            if (bHit && hand.grabGripAction.GetStateUp(hand.handType))
+            if (bHit && interactWithUI.GetStateUp(pose.inputSource))
             {
                 PointerEventArgs argsClick = new PointerEventArgs();
                 argsClick.fromInputSource = pose.inputSource;
@@ -182,35 +142,16 @@ namespace Valve.VR.Extras
                 OnPointerClick(argsClick);
             }
 
-
-            //指さしている途中hand.grabGripAction.GetState(hand.handType)
-            if (interactWithUI != null && hand.grabGripAction.GetState(hand.handType) && !hand.grabPinchAction.GetState(hand.handType))
+            if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
             {
                 pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = clickColor;
-
-                pointingObj = hit.collider.gameObject;
-
-                //pointingHoverObjInst = Instantiate(pointingHoverObj, hit.point, Quaternion.identity);
-
-
-                hand.hoverSphereTransform.position = hit.point;
-
             }
             else
             {
-                pointer.transform.localScale = new Vector3(0, 0, dist);
+                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = color;
-
-                pointingObj = null;
-
-                //Destroy(pointingHoverObjInst.gameObject);
-
-                hand.hoverSphereTransform.position = pointingHoverObjTransformOrigin.transform.position;
             }
-
-
-
             pointer.transform.localPosition = new Vector3(0f, 0f, dist / 2f);
         }
     }

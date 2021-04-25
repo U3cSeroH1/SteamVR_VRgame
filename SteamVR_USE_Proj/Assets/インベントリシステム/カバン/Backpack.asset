@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Backpack
   m_EditorClassIdentifier: 
   kindOfItem: 2
+  deepItemKind: 0
   gameObject: {fileID: 3426197303748396376, guid: b6ee225b6cccfdc4fb2f43f47d6f4289,
     type: 3}
   itemName: "\u304B\u3070\u3093"

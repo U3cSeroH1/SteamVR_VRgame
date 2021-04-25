@@ -36,8 +36,6 @@ namespace Valve.VR.InteractionSystem
 
         public float canTurnEverySeconds = 0.4f;
 
-        public GameObject Body;
-
 
         private void Start()
         {
@@ -180,7 +178,6 @@ namespace Valve.VR.InteractionSystem
             this.transform.rotation = Quaternion.LookRotation(player.hmdTransform.position - this.transform.position, Vector3.up);
             this.transform.Translate(additionalOffset, Space.Self);
             this.transform.rotation = Quaternion.LookRotation(player.hmdTransform.position - this.transform.position, Vector3.up);
-
         }
     }
 }

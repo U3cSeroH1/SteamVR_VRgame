@@ -168,7 +168,6 @@ namespace Valve.VR.InteractionSystem
 					nockTransform.localPosition = new Vector3( 0f, 0f, 0f );
 
 					this.bowDrawLinearMapping.value = 0f;
-
 				}
 			}
 			else
@@ -350,13 +349,13 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void ShutDown()
 		{
-			if (hand != null && hand.otherHand.currentAttachedObject != null)
+			if ( hand != null && hand.otherHand.currentAttachedObject != null )
 			{
-				if (hand.otherHand.currentAttachedObject.GetComponent<ItemPackageReference>() != null)
+				if ( hand.otherHand.currentAttachedObject.GetComponent<ItemPackageReference>() != null )
 				{
-					if (hand.otherHand.currentAttachedObject.GetComponent<ItemPackageReference>().itemPackage == arrowHandItemPackage)
+					if ( hand.otherHand.currentAttachedObject.GetComponent<ItemPackageReference>().itemPackage == arrowHandItemPackage )
 					{
-						hand.otherHand.DetachObject(hand.otherHand.currentAttachedObject);
+						hand.otherHand.DetachObject( hand.otherHand.currentAttachedObject );
 					}
 				}
 			}
@@ -364,25 +363,25 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void OnHandFocusLost(Hand hand)
+		private void OnHandFocusLost( Hand hand )
 		{
-			gameObject.SetActive(false);
+			gameObject.SetActive( false );
 		}
 
 
 		//-------------------------------------------------
-		private void OnHandFocusAcquired(Hand hand)
+		private void OnHandFocusAcquired( Hand hand )
 		{
-			gameObject.SetActive(true);
-			OnAttachedToHand(hand);
+			gameObject.SetActive( true );
+			OnAttachedToHand( hand );
 		}
 
 
-		////-------------------------------------------------
-		//private void OnDetachedFromHand(Hand hand)
-		//{
-		//	Destroy(gameObject);
-		//}
+		//-------------------------------------------------
+		private void OnDetachedFromHand( Hand hand )
+		{
+			Destroy( gameObject );
+		}
 
 
 		//-------------------------------------------------
